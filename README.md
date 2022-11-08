@@ -1,9 +1,13 @@
 # workshop-react
 
-React es una libreraria para hacer interfaces de usuario
-### Creando aplicación en react desde vite y node js
+React es una libreraria para hacer interfaces de usuario, puedes hacer aplicaicón con javascript, pero para acceder al DOM se hace más facil así (html, head y body), se usa en todas las apps de hoy en dia como facebook, netflix, instagram, etc
 
-Para comenzar con la configuración del proyecto, vamos a utilizar un "empaquetador" en este caso Vite y node para realizar la configuración y conexión de backend y frontend.
+JSX. forma que tiene react para escribir en html pero que realmente es código javascript, pero si fuera 100% javascript sería más tedioso de realizar.
+Babel ya casi no se usa pero se sigue usando, antes para usar react tocaba instalar webpack y las librerias de babel que traduce código que no entiende en javascript lo pasa código que si que entiende por sintaxis
+
+### Crear aplicación en react desde vite y node js
+
+Para comenzar con la configuración del proyecto, ya no vamos a utilizar un "empaquetador" como webpack ya que casi no se usa ya, sino herramientas de "scafolding" o create react app y ya se configura apartir de agí en este caso Vite y node para realizar la configuración y conexión de backend y frontend.
 1. Ingresamos a https://vitejs.dev/guide/ - ingresamos a get started, ahi tenemos todas las opciones de proyectos que podemos crear, en este caso react con javascript
 2. Como vamos a instalar con npm vamos a Scaffolding Your First Vite Project - With NPM: npm create vite@latest
 3. Lo configuramos con un nombre, spacex-missions, con react y javascript
@@ -27,4 +31,5 @@ Para comenzar con la configuración del proyecto, vamos a utilizar un "empaqueta
   }
 5.Para este proyecto vamos a introducir todo en un solo HTML que sera el creado index.html, es algo malo por la carga de contenido, para que la indexe google, que la rastreen los buscadores, que los navegadores lo rendericen más rapido no es lo más aconsejable - se hace con una api rest y single page aplication. - en este div estara todo nuestro contenido
      <div id="root"></div>
-6. Para ejecutar nuestra aplicación podemos escribir npm run dev como uno de nuestros scripts
+6. Antes de ejecutarlo vamos a instalar nuestra app con: npm install
+7. Para ejecutar nuestra aplicación podemos escribir npm run dev como uno de nuestros scripts

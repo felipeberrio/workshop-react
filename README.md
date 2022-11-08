@@ -33,6 +33,13 @@ Para comenzar con la configuración del proyecto, ya no vamos a utilizar un "emp
      <div id="root"></div>
 6. Antes de ejecutarlo vamos a instalar nuestra app con: npm install
 7. Para ejecutar nuestra aplicación podemos escribir npm run dev como uno de nuestros scripts
-8. Vamos a eliminar el return de app.jsx, en este caso lo comente, y vamos a escribir en el lenguaje unico de react en jsx tipo html de javascript:<div>Hola Mundo</div>
-9. El punto de entrada de la app es main.jsx o lo primero que va a leer ya que en html lo declaramos así     <script type="module" src="/src/main.jsx"></script>
-10. 18:00
+8. Vamos a eliminar Quitamos los estilos El archivo css y el return de app.jsx, en este caso lo comente, y vamos a escribir en el lenguaje unico de react en jsx tipo html de javascript:<div>Hola Mundo</div>
+9. Main.jsx es el punto de entrada de la app q es lo primero que va a leer ya que en html lo declaramos así     <script type="module" src="/src/main.jsx"></script> el main.jsx va a importar react para que entienda jsx y todas las librerias de react básicas, react dom para la logia propia de componentes react de renderizado en desarrollo web para poder separarlo de react native que funciona para un dispositivo movil y el app de un modulo:
+    ReactDOM.createRoot(document.getElementById('root')).render( // Primero crea un root con variable de id del root ( nodo del documento donde queremos incrustarlo) y la segunda renderiza 1 argumento,  que es la app creada en Modo react estricto
+      <React.StrictMode>
+        <App /> // el app lo importamos de un modulo tambien
+      </React.StrictMode>
+    )
+10. pasamos a ver app.jsx, un componente de react realmente es una función que además de exportarse por defecto, se puede exportar nombrada, para que al importar lo puedas importar import { App } from "./App"; para asegurarse de importate con el mismo nombre de antes y mas componentes si lo separa con comas { App } from "./App,x,x";
+11. Podemos descargar para chrome react dev tools como extensión para poder ver en consola 2 elementos nuevos (para ver los componentes que estan hechos en javascript y su arbol y propiedades)
+12. Vamos a utilizar los datos de la api de spacex https://docs.spacexdata.com/

@@ -33,3 +33,6 @@ Para comenzar con la configuración del proyecto, ya no vamos a utilizar un "emp
      <div id="root"></div>
 6. Antes de ejecutarlo vamos a instalar nuestra app con: npm install
 7. Para ejecutar nuestra aplicación podemos escribir npm run dev como uno de nuestros scripts
+8. Vamos a eliminar el return de app.jsx, en este caso lo comente, y vamos a escribir en el lenguaje unico de react en jsx tipo html de javascript:<div>Hola Mundo</div>
+9. El punto de entrada de la app es main.jsx o lo primero que va a leer ya que en html lo declaramos así     <script type="module" src="/src/main.jsx"></script>
+10. 18:00

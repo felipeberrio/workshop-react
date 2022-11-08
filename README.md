@@ -66,3 +66,101 @@ export async function getLaunchByFlightNumber(flightNumber) {
     console.error(error);
     }
 }
+15.Vamos ahora a importar las funciones que acabamos de hacer en app.jsx así : import * as API from './services/launches'; asi poder usar API.getAllLaunches
+Para poder guardar la información cuando nos llegue y aca tenemos un problema con la sincronidad de javascript con react tenemos que guardar la información en un estado para que si un estado cambia que fuerce el renderizado y nos muestre la información, por el momento en app.jsx solo devolvemos un hola mundo y lo saca facil pero al renderizar el nuevo json va a tardar un rato, tenemos que tener en cuenta cuanto tarda en llegarnos los datos y cuanto se demora en cargar los datos en pantalla, con metodos de ciclos de vida, por lo que si el componente usa estado toca usar funciónes pero con hook nuevos el ciclo de vida permite hacer cambios en determinados momentos con useState como hook de estado y useEffect que dependiendo como lo declare hace referencia al componentingMount y componentingMount como hook cuando actualiza y estan en la libreria de react estos hooks o ganchos.
+16. importamos react useState y useEffect en app.jsx: import { useState, useEffect } from 'react' 
+17. en una funcion para poner una constante la debemos poner de primeras y con hooks toca tener en cuenta unas reglas, no poner hooks en renderizado, oprque como es javascript creerias que se puede pero no dentro de la función, tiene que estar de primeras al crear el componente - Dado que react lo que hace es crear un elemento react.createElement y de ahi se crean los demas elementos, tendremos un primer objetos padre de todos pero solo 1 no pueden haber dos a su altura, para eso podemos usar Fragment por si usas flexblox o demás elementos que causaba problema esta caracterista de rect y es tan simple como solo poner: es como un div invible primero que no afecta los estilos
+function App() {
+
+  return (
+  <>    
+    <div>Hola Mundo</div>
+    <div>PIPE</div>
+  </>
+  )
+}
+18. // Para crear el hook vamos a crear una constante que con useState devuelve un array(puede ser cualquier cosa, string, objetos, etc) con dos elementos (primero es el elemento con el estado en si, que es laucnhes y el potro es una funcion que permite cambiatr el estado) de inicio va a estar vacio
+  const [launches, setLaunches] = useState([]);
+
+// Como hay componentes que van cambiando de estado constantemente vamos a usar useEffect mejor  para no liarla es mejor usar .then porque no puedo usarlo como asyncronam y usar el await... para usar async y await me creo una funcion afuera y ahi si la puedo usar dentro pero es mas completo
+
+  useEffect(() => {
+    API.getAllLaunches().then(setLaunches);
+  }, []);
+
+  // Al acabar la promesa tendremos los datos y los pasamos al set como argumento nos lo ahorramos
+  // Tambien al usar useEffect, ademas de recibir el callback como primer argumento, recibe un array de dependencias de segundo argumento, si esta vacia va a ejecutra la llamada a la api, y si no esta vacia por ejemplo [launches] lo que va a hacer es llamar la funcion de adentro al cambiar la variable,
+19. Modificamos el app.jsx 
+
+import { useState, useEffect } from 'react'
+// import reactLogo from './assets/react.svg'
+// // import './App.css'
+import * as API from './services/launches';
+
+// Si quisieramos exportar las demas variables ne la funcion podemos hacerlo con ...props que sirve para hacer un resumen del resto de propiedades REST PARAMETERS
+// export function App({ key, onkeyChange , ...props}) {
+
+
+export function App() {
+// Para crear el hook vamos a crear una constante que con useState devuelve un array(puede ser cualquier cosa, string, objetos, etc) con dos elementos (primero es el elemento con el estado en si, que es laucnhes y el potro es una funcion que permite cambiatr el estado) de inicio va a estar vacio
+  const [launches, setLaunches] = useState([]);
+
+// Como hay componentes que van cambiando de estado constantemente vamos a usar useEffect mejor  para no liarla es mejor usar .then porque no puedo usarlo como asyncronam y usar el await... para usar async y await me creo una funcion afuera y ahi si la puedo usar dentro pero es mas completo
+
+  useEffect(() => {
+    API.getAllLaunches().then(setLaunches);
+  }, []);
+
+  // Al acabar la promesa tendremos los datos y los pasamos al set como argumento nos lo ahorramos
+  // Tambien al usar useEffect, ademas de recibir el callback como primer argumento, recibe un array de dependencias de segundo argumento, si esta vacia va a ejecutra la llamada a la api, y si no esta vacia por ejemplo [launches] lo que va a hacer es llamar la funcion de adentro al cambiar la variable,
+
+  // Dentro de corchetes puedes hacer logica de javascript donde queremos que launches el array lo iteremos y escriba algo y con react necesitamos que reaccione y nos devuelva cosa, por lo tanto vamos a recorrer el array y que nos devuelva el array, con for no funciona, toca usar map o otro elemento funcional de javascript que devunelva algo vamos a hacer que nos devuelva dentro de un listado pero para un listado necesitamos que cada fila tenga un key por elemento así como pusimos para que sea unico el valor
+  
+
+  return (
+  <>    
+    <h1>SpaceX Launches</h1>
+    <section>
+    <ul>
+       {launches.map(launch => (
+      <li key={launch.flight_number}>
+        {launch.mission_name}({launch.launch_year})
+      </li>
+    ))} 
+    </ul>
+    </section>
+  </>
+  )
+
+  20. 
+
+
+
+  import { useState, useEffect } from 'react';
+import * as API from './services/launches';
+
+
+export function App() {
+  const [launches, setLaunches] = useState([]);
+
+
+  useEffect(() => {
+    API.getAllLaunches().then(setLaunches);
+  }, []);
+
+  return (
+    <>    
+      <h1>SpaceX Launches</h1>
+      <ul>
+        {launches.map(launch) => (
+        <li key={launch.flight_number}>
+          {launch.mission_name}({launch.launch_year})
+        </li>
+      ))} 
+      </ul>
+    </>
+    );
+  }
+
+
+  49:22 crasheo

@@ -42,4 +42,27 @@ Para comenzar con la configuración del proyecto, ya no vamos a utilizar un "emp
     )
 10. pasamos a ver app.jsx, un componente de react realmente es una función que además de exportarse por defecto, se puede exportar nombrada, para que al importar lo puedas importar import { App } from "./App"; para asegurarse de importate con el mismo nombre de antes y mas componentes si lo separa con comas { App } from "./App,x,x";
 11. Podemos descargar para chrome react dev tools como extensión para poder ver en consola 2 elementos nuevos (para ver los componentes que estan hechos en javascript y su arbol y propiedades)
-12. Vamos a utilizar los datos de la api de spacex https://docs.spacexdata.com/
+12. Vamos a utilizar los datos de la api de spacex https://docs.spacexdata.com/ proveninetes de un gran .json
+13. Creamos un fichero en src llamado /services y luego Creamos un archivo llamado launches.js donde vamos a hacer una función que me devuelva los datos del json de nuestra api por lo que haremos una petición Get a la URL y que nos devuelva los datos, podemos usar librerias para fetchin como axio o demás pero fetch es nativa y asi nos ahorramos pues una linea más de codigo que tampoco importa mucho.
+14. Primero vamos a importar la api en una constante la cual nos devolvera el json de nuestra url desde este archivo laucnhes
+const API_URL = "https://api.spacexdata.com/v3/launches"; // Creamos una constante con el valor del json de la url
+
+export async function getAllLaunches() {
+    try{
+    const response = await fetch('${API_URL}/launches'); // Cuando hacemos el await fetch obtenemos una respuesta y los datos pasan al json donde el array de internet con todos los objetos
+    const data = await response.json;
+    return data;
+    }   catch (error) {
+    console.error(error);
+    }
+}
+
+export async function getLaunchByFlightNumber(flightNumber) {
+    try{
+    const response = await fetch('${API_URL}/launches/${flightNumber}'); 
+    const data = await response.json;
+    return data;
+    }   catch (error) {
+    console.error(error);
+    }
+}

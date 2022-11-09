@@ -117,31 +117,14 @@ export function App() {
   // Dentro de corchetes puedes hacer logica de javascript donde queremos que launches el array lo iteremos y escriba algo y con react necesitamos que reaccione y nos devuelva cosa, por lo tanto vamos a recorrer el array y que nos devuelva el array, con for no funciona, toca usar map o otro elemento funcional de javascript que devunelva algo vamos a hacer que nos devuelva dentro de un listado pero para un listado necesitamos que cada fila tenga un key por elemento así como pusimos para que sea unico el valor
   
 
-  return (
-  <>    
-    <h1>SpaceX Launches</h1>
-    <section>
-    <ul>
-       {launches.map(launch => (
-      <li key={launch.flight_number}>
-        {launch.mission_name}({launch.launch_year})
-      </li>
-    ))} 
-    </ul>
-    </section>
-  </>
-  )
 
-  20. 
-
-
-
-  import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import * as API from './services/launches';
+import logo from "./assets/logo-spacex.png";
 
 
 export function App() {
-  const [launches, setLaunches] = useState([]);
+   const [launches, setLaunches] = useState([]);
 
 
   useEffect(() => {
@@ -150,17 +133,45 @@ export function App() {
 
   return (
     <>    
+      <img m={4} src={logo} width={300} />
       <h1>SpaceX Launches</h1>
       <ul>
-        {launches.map(launch) => (
-        <li key={launch.flight_number}>
-          {launch.mission_name}({launch.launch_year})
-        </li>
-      ))} 
+        {launches.map((launch) => (
+          <li key={launch.flight_number}>
+            {launch.mission_name} ({launch.launch_year})
+          </li>
+        ))}
       </ul>
     </>
-    );
-  }
+  ); 
+}
 
 
-  49:22 crasheo
+export default App; // Esta ultima linea esta rara, porque de por si ya estoy exportando la función al invocarla, pero no me esta apareciendo si no la invoco aca al final
+
+
+20. Vamos a relacionar un logo, lo guardamos en assets nueva carpeta dentro de source y lo invocamos en nuestra app en app.jsx dentro de lo que va a devolver el app
+
+      <img m={4} src={logo} width={300} />
+
+### Estilos con Chackra-ui
+
+1. Vamos a importar componentes y con las props vamos a estilarlos https://chakra-ui.com/ 
+buscamos por ejemplo Heading para el encabezado, importarlo y así... hay muchos componentes en chackra
+
+Para usarlo vamos a getting started y vamos a Vite en este caso particular del proyecto, ya para los demas dice como instalar:
+toca en la terminal usar: npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6 donde se instala chacke, emotion de react, framer-motion
+
+Ademas agregaremos un proveedor dentro de nuestro main.jsx que es un componente que engloba la app
+
+import { ChakraProvider } from '@chakra-ui/react'
+
+ReactDOM.render( 
+  <React.StrictMode>
+    <ChakraProvider>
+    <App />
+    </ChakraProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+

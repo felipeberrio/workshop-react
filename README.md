@@ -175,3 +175,12 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+Aplicamos en el app.jsx todas las etiquetas importadas de chackra
+
+### Iconos con React Icons
+
+Vamos a buscar la libreria de React React icons en el link https://react-icons.github.io/react-icons/
+
+Para instalarla usamos npm install @react-icons/all-files --save
+
+1:02:45 sin crasheo

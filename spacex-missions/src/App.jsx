@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import * as API from './services/launches';
+import logo from "./assets/logo-spacex.png";
 
 
 export function App() {
-  const [launches, setLaunches] = useState([]);
+   const [launches, setLaunches] = useState([]);
 
 
   useEffect(() => {
@@ -12,14 +13,24 @@ export function App() {
 
   return (
     <>    
+      <img m={4} src={logo} width={300} />
       <h1>SpaceX Launches</h1>
       <ul>
-        {launches.map(launch) => (
-        <li key={launch.flight_number}>
-          {launch.mission_name}({launch.launch_year})
-        </li>
-        )}
+        {launches.map((launch) => (
+          <li key={launch.flight_number}>
+            {launch.mission_name} ({launch.launch_year})
+          </li>
+        ))}
       </ul>
     </>
-    );
-  }
+  ); 
+}
+
+
+export default App; 
+
+/* function App() {
+  return <div>Hola Mundo</div>
+}
+
+export default App; */

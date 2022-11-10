@@ -211,5 +211,51 @@ Vamos a buscar la libreria de React React icons en el link https://react-icons.g
               </Text>
             </Flex>
 
-### 
-  6.
+### Separar por componentes
+
+1. Creamos la carpeta components en src y agregamos el LaunchItem.jsx
+2. Importamos el nuevo documento en app.jsx: import { LaunchItem } from "./components/LaunchItem";
+3. Agregamos la documentación de app.jsx en launchitem.jsx de acuerdo a cada tarjeta que creamos
+  export function LaunchItem(){
+    return (
+        <Box key={launch.flight_number} bg="gray.100" p={4} m={4} borderRadius="lg">
+                <Flex display="flex">
+                  <Text fontSize="2xl">Mission <strong>{launch.mission_name} </strong>
+                  ({launch.launch_year})</Text>
+                  <Spacer />
+                  <Tag p={4} colorScheme={launch.launch_success ? "green" : "red"}>
+                    {launch.launch_success ? "Success" : "Failure"}
+                  </Tag>
+                </Flex>
+                <Flex>
+                  <HiCalendar /> {" "}
+                  <Text fontSize="sm" ml={1}>
+                    {dayjs(launch.launch_date_local)
+                      .locale("es")
+                      .format("D, MMMM, YYYY")}
+                  </Text>
+                </Flex>
+              </Box>
+      ); 
+}
+4. Le quitamos el key={launch.flight_number} y agregamos 
+  export function LaunchItem(launch){
+    return (
+        <Box bg="gray.100" p={4} m={4} borderRadius="lg">
+
+  return (
+    <>    
+      <Image m={4} src={logo} width={300} />
+      <Heading align="center" as="h1" size="lg" m={4}>
+        SpaceX Launches
+      </Heading>
+      <section>
+        {launches.map((launch) => (
+          <LaunchItem key={launch.flight_number} {...launch}/>
+        ))}
+      </section>
+    </>
+  ); 
+
+
+{launch.mission_name} ({launch.launch_year})

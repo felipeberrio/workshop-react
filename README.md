@@ -258,4 +258,5 @@ Vamos a buscar la libreria de React React icons en el link https://react-icons.g
   ); 
 
 
-{launch.mission_name} ({launch.launch_year})
+5. Agregamos un boton de chackra y modificamos el color del icono con chackra, todo en launchitem.jsx
+

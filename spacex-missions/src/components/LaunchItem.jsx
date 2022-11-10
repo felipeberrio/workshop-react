@@ -1,11 +1,11 @@
 import { HiCalendar } from "react-icons/hi";
-import { Box, Heading, Image, Flex, Text, Tag, Spacer } from '@chakra-ui/react'; 
+import { Box, Flex, Text, Tag, Spacer, Button, Icon } from '@chakra-ui/react'; 
 import dayjs from "dayjs";
 import "dayjs/locale/es";
 
 export function LaunchItem(launch){
     return (
-        <Box bg="gray.100" p={4} m={4} borderRadius="lg">
+        <Box bg="gray.100" p={2 } m={4} borderRadius="lg">
                 <Flex display="flex">
                   <Text fontSize="2xl">Mission <strong>{launch.mission_name} </strong>
                   ({launch.launch_year})</Text>
@@ -16,12 +16,13 @@ export function LaunchItem(launch){
                 </Flex>
                 <Flex>
                   <HiCalendar /> {" "}
-                  <Text fontSize="sm" ml={1}>
+                  <Text fontSize="sm" ml={1} color='gray.500'>
                     {dayjs(launch.launch_date_local)
                       .locale("es")
                       .format("D, MMMM, YYYY")}
                   </Text>
                 </Flex>
+                <Button mt={2} colorScheme='blue'>More Details</Button>
               </Box>
       ); 
 }

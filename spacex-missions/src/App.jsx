@@ -34,7 +34,7 @@ export function App() {
             <Flex>
               <HiCalendar /> {" "}
               <Text fontSize="sm" ml={1}>
-                {dayjs(launch.launch_date_local)}
+                {dayjs(launch.launch_date_local)
                   .locale("es")
                   .format("D, MMMM, YYYY")}
                 {launch.mission_name} ({launch.launch_year})

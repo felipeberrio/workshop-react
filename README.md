@@ -177,10 +177,39 @@ ReactDOM.render(
 
 Aplicamos en el app.jsx todas las etiquetas importadas de chackra
 
-### Iconos con React Icons
+### Iconos con React Icons y Formato fecha con day-fns
 
 Vamos a buscar la libreria de React React icons en el link https://react-icons.github.io/react-icons/
 
-Para instalarla usamos npm install @react-icons/all-files --save
+1. Para instalarla usamos npm install @react-icons/all-files --save
+2. Agregamos la importación de la libreria en App.jsx: import { IconName } from "react-icons/hi";
+3. Agregamos el icono <HiCalendar /> que se ve en la documentacion de react icons en las tarjetas Flex que hemos creado en app.jsx
 
-1:02:45 sin crasheo
+            <Flex>
+              <HiCalendar /> {" "}
+              <Text fontSize="sm">
+                {launch.launch_date_local.split("T")[0]} 
+                {launch.mission_name} ({launch.launch_year})
+              </Text>
+            </Flex>
+
+  4. Vamos a agregar la libreria day.js que es similar a moment.js para poder mostrar las fechas correctamente, primero aplicamos: npm install dayjs
+  5. Agregamos en app.jsx la importación 
+        const dayjs = require('dayjs')
+        //import dayjs from 'dayjs' // ES 2015
+        dayjs().format()
+
+        import dayjs from "dayjs";
+        import "dayjs/locale/es";
+
+                    <Flex>
+              <HiCalendar /> {" "}
+              <Text fontSize="sm" ml={1}>
+                {dayjs(launch.launch_date_local)
+                  .locale("es")
+                  .format("D, MMMM, YYYY")}
+              </Text>
+            </Flex>
+
+### 
+  6.

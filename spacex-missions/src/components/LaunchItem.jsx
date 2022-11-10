@@ -14,8 +14,8 @@ export function LaunchItem(launch){
                     {launch.launch_success ? "Success" : "Failure"}
                   </Tag>
                 </Flex>
-                <Flex>
-                  <HiCalendar /> {" "}
+                <Flex align='center'>
+                  <Icon as={HiCalendar} color='gray.500' /> {" "}
                   <Text fontSize="sm" ml={1} color='gray.500'>
                     {dayjs(launch.launch_date_local)
                       .locale("es")

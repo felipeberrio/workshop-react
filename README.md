@@ -260,3 +260,7 @@ Vamos a buscar la libreria de React React icons en el link https://react-icons.g
 
 5. Agregamos un boton de chackra y modificamos el color del icono con chackra, todo en launchitem.jsx
 
+6. Faltaria con React Router configurar el boton
+
+Root: https://www.youtube.com/watch?v=4AFOCAgywLc&t=3765s&ab_channel=CarlosAzaustre-AprendeJavaScript
+

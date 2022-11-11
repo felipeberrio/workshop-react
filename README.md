@@ -264,3 +264,13 @@ Vamos a buscar la libreria de React React icons en el link https://react-icons.g
 
 Root: https://www.youtube.com/watch?v=4AFOCAgywLc&t=3765s&ab_channel=CarlosAzaustre-AprendeJavaScript
 
+### Instalar react router DOM para configurar botón de más detalles de lanzamiento
+
+Vamos a crear una ruta al botón que cree una nueva ventana, existen muchas librerias de routers
+1. Instalamos en la carpeta del proyecto de vite nuestra conexión a react routers con: npm install react-router-dom localforage match-sorter sort-by
+En el package.json se acaba de crear la dependencia: "react-router-dom": "^6.4.3",
+2. Creamos la importación en nuestra app en nuestro main.jsx para no tener que poner la importación en cada componente: import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+} from "react-router-dom";

@@ -1,7 +1,8 @@
 import { Image } from '@chakra-ui/react'; 
 import { Routes, Route, Link } from 'react-router-dom';
 
-import { LaunchItem } from "./components/LaunchItem";
+import { LaunchList } from "./components/LaunchList";
+import { LaunchDetails } from "./components/LaunchDetails";
 import logo from "./assets/logo-spacex.png";
 
 export function App() {
@@ -9,8 +10,8 @@ export function App() {
     <>    
       <Image m={4} src={logo} width={300} />
       <Routes>
-        <Route path="/" element = { <LaunchesList /> } />
-        <Route path="launch/:id" element = { <LaunchItem /> } />
+        <Route path="/" element = { <LaunchList /> } />
+        <Route path="launch/:launchId" element = { <LaunchDetails /> } />
       </Routes>
     </>
   ); 

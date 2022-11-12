@@ -275,4 +275,12 @@ En el package.json se acaba de crear la dependencia: "react-router-dom": "^6.4.3
       RouterProvider,
       Route,
     } from "react-router-dom";
-3.
+3.  App.jsx lo vamos a usar como el rapper de las rutas y vamos a pasar su info a un archivo, Creamos los archivos en components llamado LaunchList
+4. Creamos la importación: import { Routes, Route, Link } from 'react-router-dom'; pero no vamos a utilizar Link porue es un elemento que funciona para conectar nuestro componente si enlaza a otra página
+5. Como va a cambiar la página desde el heading hasta abajo al oprimir el boton, vamos a agregar el router desde el heading de ambas rutas justo después de la imagen
+          <Routes>
+            <Route path="/" element = { <LaunchesList /> } />
+            <Route path="launch/:id" element = { <LaunchItem /> } />
+         </Routes>
+
+6. Vamos a pasar la info de app.jsx a LaunchList.jsx 

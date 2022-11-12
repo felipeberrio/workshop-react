@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Heading, Image } from '@chakra-ui/react'; 
+import { Routes, Route, Link } from 'react-router-dom';
 import { LaunchItem } from "./components/LaunchItem";
 import * as API from './services/launches';
 import logo from "./assets/logo-spacex.png";
@@ -15,6 +16,9 @@ export function App() {
   return (
     <>    
       <Image m={4} src={logo} width={300} />
+      <Routes>
+        <Route path="/" element={LaunchesList launches={launches} /> } />
+      </Routes>
       <Heading align="center" as="h1" size="lg" m={4}>
         SpaceX Launches
       </Heading>

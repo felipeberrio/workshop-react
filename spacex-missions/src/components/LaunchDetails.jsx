@@ -1,3 +1,6 @@
+import { useParams } from "react-router-dom"
+
 export function LaunchDetails(props) {
-    return <div>Hola {props.launchId} </div>
+    const { launchId } = useParams()
+    return <div>Hola {launchId} </div>
 }

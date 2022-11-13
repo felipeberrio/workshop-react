@@ -283,4 +283,9 @@ En el package.json se acaba de crear la dependencia: "react-router-dom": "^6.4.3
             <Route path="launch/:id" element = { <LaunchItem /> } />
          </Routes>
 
-6. Vamos a pasar la info de app.jsx a LaunchList.jsx 
+6. Vamos a pasar la info de app.jsx a LaunchList.jsx y refrescamos las importaciones tanto en app.jsx como en launchlist.jsx
+ ### UseParams Hook
+
+1. Para poder crear la ruta, tenemos que permitir que el componente de detalles importe las props del api, entonces vamos a importar según la documentación de react routes: import { useParams } from "react-router-dom"
+
+### Crear Links internos de routers

@@ -289,3 +289,8 @@ En el package.json se acaba de crear la dependencia: "react-router-dom": "^6.4.3
 1. Para poder crear la ruta, tenemos que permitir que el componente de detalles importe las props del api, entonces vamos a importar según la documentación de react routes: import { useParams } from "react-router-dom"
 
 ### Crear Links internos de routers
+
+1. importamos link de react router dom desde launchItem
+2. Para el boton vamos a usar chackra
+3. Utilizamos la etiqueta link y vamos a nombrar el link con template string de forma dinámica
+                    <link to={'/launch/S{}'} />

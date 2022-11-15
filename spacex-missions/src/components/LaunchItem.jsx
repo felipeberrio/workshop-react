@@ -9,7 +9,8 @@ export function LaunchItem(launch){
         <Box bg="gray.100" p={2 } m={4} borderRadius="lg">
                 <Flex display="flex">
                   <Text fontSize="2xl">Mission <strong>{launch.mission_name} </strong>
-                  ({launch.launch_year})</Text>
+                  ({launch.launch_year})
+                  </Text>
                   <Spacer />
                   <Tag p={4} colorScheme={launch.launch_success ? "green" : "red"}>
                     {launch.launch_success ? "Success" : "Failure"}
@@ -23,10 +24,11 @@ export function LaunchItem(launch){
                       .format("D, MMMM, YYYY")}
                   </Text>
                 </Flex>
-                <link to={'/launch/${launch.flight_number}'} />
-                <Button mt={2} colorScheme='blue'>
-                  More Details
-                </Button>
+                <link to={`/launch/${launch.flight_number}`}>
+                  <Button mt={2} colorScheme='blue'>
+                    More Details
+                  </Button>
+                </link>
               </Box>
       ); 
 }

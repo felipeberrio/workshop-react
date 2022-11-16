@@ -293,4 +293,7 @@ En el package.json se acaba de crear la dependencia: "react-router-dom": "^6.4.3
 1. importamos link de react router dom desde launchItem
 2. Para el boton vamos a usar chackra
 3. Utilizamos la etiqueta link y vamos a nombrar el link con template string de forma dinámica
-                    <link to={'/launch/S{}'} />
+                <LaunchItem key={launch.flight_number} {...launch}/>
+
+
+

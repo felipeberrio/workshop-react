@@ -8,7 +8,7 @@ export function LaunchDetails(props) {
     
 
     useEffect(() => {
-    
+        API.getLaunchByFlightNumber(launchId).then(setLaunch).catch(console.log);
     },[launchId]);
 
     return <div>Hola {launchId} </div>

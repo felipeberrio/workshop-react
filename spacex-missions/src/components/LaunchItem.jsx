@@ -25,7 +25,7 @@ export function LaunchItem(launch){
                   </Text>
                 </Flex>
                 <link to={`/launch/${launch.flight_number}`}>
-                  <Button mt={2} colorScheme='blue'>
+                <Button mt={2} colorScheme='purple'>
                     More Details
                   </Button>
                 </link>
